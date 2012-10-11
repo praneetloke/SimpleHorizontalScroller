@@ -1,0 +1,12 @@
+.side-scroller {
+    width: 870px;
+    overflow: hidden;
+}
+
+.side-scroll-wrapper {
+    width: 2000px;
+}
+
+a {
+    text-decoration: none;
+}

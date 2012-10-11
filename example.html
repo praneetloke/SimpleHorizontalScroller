@@ -1,0 +1,115 @@
+<html>
+    <head>
+        <title>left-right</title>
+        <script type="text/javascript" src="js/zepto.min.js"></script>
+        <script type="text/javascript" src="js/leftRight.js"></script>
+        <script type="text/javascript">
+            
+            function onLoad() {
+                leftRight.setScroller($('.side-scroller').get(0));//set this to null if you manually want to set the scroller
+                $(".first-link").bind("click", scrollGrids);
+                $(".second-link").bind("click", scrollGrids);
+            }
+            
+            function scrollGrids(e) {
+                e.preventDefault();
+                if($(e.currentTarget).hasClass("selected") || leftRight.isScrolling()) {
+                    return false;
+                }
+                else if($(e.currentTarget).hasClass("first-link")) {
+                    $(".first-link").addClass("selected");
+                    $(".second-link").removeClass("selected");
+                    leftRight.setIntervalId(setInterval(function() {
+                        leftRight.scroll(0);
+                    },10));
+                    
+                }
+                else if($(e.currentTarget).hasClass("second-link")) {
+                    $(".first-link").removeClass("selected");
+                    $(".second-link").addClass("selected");
+                    var sideScrollerWidth = $(".side-scroller").width();
+                    leftRight.setIntervalId(setInterval(function() {
+                        leftRight.scroll(sideScrollerWidth);
+                    },10));
+                }
+                return true;
+            }
+            
+        </script>
+        <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+        <link href="css/leftRight.css" type="text/css" rel="stylesheet"/>
+        <style type="text/css">
+            #first-grid,
+            #second-grid {
+                float: left;
+                display: inline-block;
+                width: 873px;
+                padding-top: 0;
+            }
+            
+            .links {
+                padding-left: 13px;
+                padding-top: 8px;
+                padding-bottom: 5px;
+                font-size: 13px;
+            }
+            
+            .first-link.selected,
+            .second-link.selected {
+                color: #333;
+                cursor: default;
+            }
+        </style>
+    </head>
+    <body onload="onLoad()">
+        <div style="width: 900px;height:400px; padding: 100px;">
+            <div class="links">
+                <a href="first-grid" class="first-link selected">First Grid</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="second-grid" class="second-link">Second Grid</a>
+            </div>
+            <div class="side-scroller">
+                <div class="side-scroll-wrapper">
+                    <div id="first-grid">
+                        <table class="table-bordered" style="width:850px">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Something</th>
+                                    <th>Else</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Praneet Loke</td>
+                                    <td>This script has only 35 lines un-minified!</td>
+                                    <td>...</td>
+                                    <td>....</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="second-grid">
+                        <table class="table-bordered" style="width:850px">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Something</th>
+                                    <th>Else</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Praneet Loke</td>
+                                    <td>This script has only 35 lines un-minified!</td>
+                                    <td>...</td>
+                                    <td>....</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
