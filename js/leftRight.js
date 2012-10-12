@@ -9,11 +9,11 @@ var leftRight = function() {
             right = false,
             left = false;
         if(d>a) {
-            a += Math.ceil((d-a) / 10);
+            a += Math.ceil((d-a) / speed);
             right = true;
         }
         else {
-            a = a + (d-a)/10;
+            a = a + (d-a) / speed;
             left = true;
         }
         Scroller.scrollLeft = a;
