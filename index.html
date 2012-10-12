@@ -13,7 +13,8 @@
         <script type="text/javascript">
             
             function onLoad() {
-                leftRight.setScroller($('.side-scroller').get(0));//set this to null if you manually want to set the scroller
+		//you don't need to do this onload. You can do these whenever you want but obviously before you use scroll() in leftRight..
+                leftRight.setScroller($('.side-scroller').get(0));
                 $(".first-link").bind("click", scrollGrids);
                 $(".second-link").bind("click", scrollGrids);
             }
