@@ -1,19 +1,13 @@
 <html>
     <head>
         <title>left-right</title>
-	<script type="text/javascript">
-		if(navigator.userAgent.indexOf("MSIE") > -1) {
-			document.write('<script type="text\/javascript" src="js\/jquery-1.8.2.min.js"><\/script>');
-		}
-		else {
-			document.write('<script type="text\/javascript" src="js\/zepto.min.js"><\/script>');
-		}
-	</script>
+        <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/leftRight.js"></script>
         <script type="text/javascript">
             
             function onLoad() {
-		//you don't need to do this onload. You can do these whenever you want but obviously before you use scroll() in leftRight..
+		        //you don't need to do this onload. You can do these whenever you want but obviously before you use scroll() in leftRight..
                 leftRight.setScroller($('.side-scroller').get(0));
                 $(".first-link").bind("click", scrollGrids);
                 $(".second-link").bind("click", scrollGrids);
@@ -50,11 +44,20 @@
         <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
         <link href="css/leftRight.css" type="text/css" rel="stylesheet"/>
         <style type="text/css">
+            .tabs {
+                width: 850px;
+                position: relative;
+                top: 20%;
+                left: 10%;
+                -webkit-border-radius: 4px;
+                border: 2px solid #efefef;
+                padding: 10px;
+            }
             #first-grid,
             #second-grid {
                 float: left;
                 display: inline-block;
-                width: 873px;
+                width: 860px;
                 padding-top: 0;
             }
             
@@ -73,51 +76,61 @@
         </style>
     </head>
     <body onload="onLoad()">
-        <div style="width: 900px;height:400px; padding: 100px;">
-            <div class="links">
-                <a href="first-grid" class="first-link selected">First Grid</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="second-grid" class="second-link">Second Grid</a>
-            </div>
-            <div class="side-scroller">
-                <div class="side-scroll-wrapper">
-                    <div id="first-grid">
-                        <table class="table-bordered" style="width:850px">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Description</th>
-                                    <th>Something</th>
-                                    <th>Else</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Praneet Loke</td>
-                                    <td>This script has only 35 lines un-minified!</td>
-                                    <td>...</td>
-                                    <td>....</td>
-                                </tr>
-                            </tbody>
-                        </table>
+        <div class="tabs">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
+              <li><a href="#home" data-toggle="tab">Profile</a></li>
+              <li><a href="#home" data-toggle="tab">Messages</a></li>
+              <li><a href="#home" data-toggle="tab">Settings</a></li>
+            </ul>
+            <div class="tab-content" style="width: 900px;height:400px;">
+                <div class="tab-pane fade in active" id="home" style="width: 900px;height:400px;">
+                    <div class="links">
+                        <a href="first-grid" class="first-link selected">First Grid</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="second-grid" class="second-link">Second Grid</a>
                     </div>
-                    <div id="second-grid">
-                        <table class="table-bordered" style="width:850px">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Description</th>
-                                    <th>Something</th>
-                                    <th>Else</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Praneet Loke</td>
-                                    <td>This script has only 35 lines un-minified!</td>
-                                    <td>...</td>
-                                    <td>....</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="side-scroller">
+                        <div class="side-scroll-wrapper">
+                            <div id="first-grid">
+                                <table class="table-bordered" style="width:850px">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Description</th>
+                                            <th>Something</th>
+                                            <th>Else</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Praneet Loke</td>
+                                            <td>This script has only 35 lines un-minified!</td>
+                                            <td>...</td>
+                                            <td>....</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="second-grid">
+                                <table class="table-bordered" style="width:850px">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Description</th>
+                                            <th>Something</th>
+                                            <th>Else</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Praneet Loke</td>
+                                            <td>This script has only 35 lines un-minified!</td>
+                                            <td>...</td>
+                                            <td>....</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
